@@ -1,0 +1,200 @@
+/* מאכיל לכלב – assembly & wiring guide. Hebrew RTL sheet layout. */
+:root{
+  --bg:#f5f5f7;
+  --card:#ffffff;
+  --ink:#1d1d1f;
+  --sub:#6e6e73;
+  --acc:#0071e3;
+  --acc-press:#0062c4;
+  --line:rgba(0,0,0,.09);
+  --hairline:rgba(0,0,0,.06);
+  --ok-bg:rgba(52,199,89,.13);
+  --ok-ink:#1d4731;
+  --r-lg:20px;
+  --r-md:14px;
+  --r-sm:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans Hebrew",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.65;text-wrap:pretty;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(0,113,227,.18)}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+
+/* masthead */
+header{max-width:720px;margin:0 auto;padding:48px 20px 20px}
+header::before{
+  content:"מאכיל לכלב · מדריך";display:block;
+  font-size:13px;font-weight:600;color:var(--acc);margin:0 0 10px;
+}
+header h1{margin:0;font-size:clamp(29px,7vw,38px);line-height:1.14;font-weight:700;letter-spacing:-.01em}
+header p{margin:12px 0 0;color:var(--sub);font-size:16.5px;line-height:1.55;max-width:38ch}
+
+/* sticky glass nav */
+nav.top{
+  position:sticky;top:0;z-index:10;
+  display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none;
+  background:rgba(245,245,247,.78);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--hairline);
+}
+nav.top::-webkit-scrollbar{display:none}
+nav.top a{
+  flex:none;color:var(--ink);padding:8px 13px;border-radius:999px;
+  font-size:15px;font-weight:500;line-height:1.3;
+  transition:background .15s ease,transform .1s ease;
+}
+nav.top a:hover{text-decoration:none;background:rgba(0,0,0,.05)}
+nav.top a:active{transform:scale(.96)}
+
+/* the sheet */
+main{
+  max-width:720px;margin:20px auto 0;padding:6px 26px 30px;
+  background:var(--card);border:1px solid var(--hairline);border-radius:var(--r-lg);
+  box-shadow:0 1px 2px rgba(0,0,0,.03),0 12px 32px rgba(0,0,0,.05);
+}
+@media (max-width:760px){
+  main{margin:12px 0 0;border-left:0;border-right:0;border-radius:0;padding:6px 20px 30px}
+}
+
+/* group headings */
+h2.grp{
+  font-size:25px;line-height:1.25;font-weight:700;letter-spacing:-.005em;
+  margin:44px 0 0;padding:26px 0 0;
+}
+h2.grp:first-child{margin-top:14px;padding-top:8px}
+
+/* one assembly part */
+.part{padding:24px 0 30px;border-top:1px solid var(--line);scroll-margin-top:66px}
+.part:last-child{padding-bottom:8px}
+.part h3{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-size:21px;line-height:1.3;font-weight:700}
+.pn{
+  flex:none;min-width:32px;height:32px;padding:0 7px;border-radius:9px;
+  background:var(--ink);color:#fff;font-size:15px;font-weight:600;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+
+/* parts-needed panel */
+.need{background:var(--bg);border:1px solid var(--hairline);border-radius:var(--r-md);padding:14px 14px 8px;margin:0 0 22px}
+.nh{margin:0 0 10px;font-size:14px;font-weight:600;color:var(--sub)}
+.need ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px 16px}
+.need li{display:flex;align-items:center;gap:10px;font-size:15px;line-height:1.35;min-width:0;flex:1 1 150px;margin:0 0 6px}
+.need img{flex:none;width:56px;height:56px;object-fit:cover;border-radius:var(--r-sm);border:1px solid var(--hairline);background:#fff}
+.need small{display:block;color:var(--sub);font-size:13px;margin-top:2px}
+
+/* steps */
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.st{counter-increment:s;position:relative;padding-inline-start:46px;margin:0 0 24px}
+.st::before{
+  content:counter(s);position:absolute;inset-inline-start:0;top:1px;
+  width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;line-height:1;
+}
+.st > p{margin:0;padding-top:3px}
+.fig{margin:14px 0 0;margin-inline-start:-46px}
+.fig img{
+  display:block;width:100%;height:auto;border-radius:var(--r-md);
+  border:1px solid var(--hairline);background:#f0f0f3;
+}
+
+/* numbered callouts under a figure */
+.keys{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:15.5px}
+.keys li{display:flex;align-items:center;gap:9px}
+.k{
+  flex:none;width:23px;height:23px;border-radius:50%;
+  background:var(--acc);color:#fff;font-size:13.5px;font-weight:600;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+
+/* 3D viewer button */
+.b3{
+  margin-top:14px;border:1px solid var(--acc);background:#fff;color:var(--acc);
+  border-radius:var(--r-sm);padding:10px 16px;font:inherit;font-size:15.5px;font-weight:600;
+  cursor:pointer;transition:background .15s ease,transform .1s ease;
+}
+.b3:hover{background:rgba(0,113,227,.06)}
+.b3:active{transform:scale(.97)}
+
+/* wiring tables */
+table.w{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;line-height:1.4;table-layout:fixed}
+table.w th{
+  text-align:start;font-weight:600;font-size:13px;color:var(--sub);
+  padding:0 6px 8px 0;border-bottom:1.5px solid var(--ink);
+}
+table.w th:first-child{width:46px}
+table.w th:last-child{width:84px}
+table.w td{padding:9px 6px 9px 0;border-bottom:1px solid var(--hairline);vertical-align:top;overflow-wrap:anywhere}
+td.cn{font-weight:700;white-space:nowrap}
+td.cc{width:84px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.35);margin-inline-end:5px;vertical-align:-1px}
+.x{color:#9a3b00;font-weight:600;font-size:14px;margin-top:2px}
+.tn{font-size:14.5px;color:var(--sub);margin:10px 0 0}
+
+/* optional block */
+.opt{margin-top:14px;border-inline-start:3px solid var(--acc);padding-inline-start:14px}
+.opt p{margin:0 0 10px;font-size:16px}
+
+/* accordions */
+details{border-top:1px solid var(--line);margin:0}
+details + details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{
+  cursor:pointer;list-style:none;position:relative;
+  padding:14px 28px 14px 0;font-weight:600;font-size:16px;color:var(--ink);
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"‹";position:absolute;left:2px;top:50%;translate:0 -50%;
+  font-size:20px;font-weight:400;color:var(--sub);transition:transform .18s ease;
+}
+details[open] summary::after{transform:rotate(-90deg)}
+.dd{padding:0 0 14px}
+.dd p{margin:0 0 8px;font-size:16px}
+
+/* success note */
+.ok{margin:20px 0 0;padding:12px 14px;border-radius:var(--r-md);background:var(--ok-bg);color:var(--ok-ink);font-size:16px;line-height:1.5}
+.ok b{color:#187a3d}
+
+/* big link button */
+a.big{
+  display:block;text-align:center;text-decoration:none;
+  background:var(--acc);color:#fff;border-radius:var(--r-md);
+  padding:15px;font-size:18px;font-weight:600;margin:18px 0 0;
+  box-shadow:0 1px 2px rgba(0,0,0,.08),0 6px 16px rgba(0,113,227,.25);
+  transition:background .15s ease,transform .1s ease;
+}
+a.big:hover{background:#0077ed;text-decoration:none}
+a.big:active{background:var(--acc-press);transform:scale(.99)}
+
+bdi{unicode-bidi:isolate}
+footer{color:var(--sub);font-size:14px;line-height:1.6;padding:26px 20px 44px;max-width:720px;margin:0 auto;text-align:center}
+
+/* fullscreen 3D overlay */
+#m3d{position:fixed;inset:0;background:rgba(12,12,14,.97);z-index:20;display:none;flex-direction:column}
+#m3d .bar{display:flex;align-items:center;justify-content:space-between;color:#fff;padding:12px 16px;font-weight:700;font-size:17px}
+#m3d button.x3{
+  background:#fff;color:var(--ink);border:0;border-radius:999px;
+  padding:8px 18px;font:inherit;font-weight:600;cursor:pointer;
+  transition:transform .1s ease;
+}
+#m3d button.x3:active{transform:scale(.96)}
+#mvw{flex:1;position:relative;min-height:0}
+#m3d model-viewer{background:#f2f2f5}
+#m3d .hint{color:rgba(255,255,255,.65);font-size:13.5px;padding:8px 16px 16px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important}
+}
+@media (prefers-reduced-transparency:reduce){
+  nav.top{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@media (prefers-contrast:more){
+  main,.need,.fig img{border-color:rgba(0,0,0,.25)}
+}

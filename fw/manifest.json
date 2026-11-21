@@ -1,0 +1,16 @@
+{
+  "name": "מתקן לכלב (DogFeedTreat) v2.9.9",
+  "version": "2.9.9",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "feeder-v2.9.6-merged.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

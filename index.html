@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head><meta charset="utf-8"/><meta content="noindex,nofollow,noarchive" name="robots"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<title>DogFeedTreat | תוכנה 2.9.9 והוראות התקנה</title><meta content="מאכיל לכלב – התקנה + הוראות" property="og:title"/><meta content="התקנת התוכנה בלחיצה, בדיקת חיבורים, והוראות הרכבה עם התמונות מההזמנה שלך ו-3D" property="og:description"/><meta content="img/steps/main_full.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="style.css?v=20261121-mobile1" rel="stylesheet"/>
+<script src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" type="module"></script>
+</head><body class="installer-page">
+<header class="site-header"><a class="brand" href="index.html"><span aria-hidden="true" class="brand-mark">D.</span><span>DogFeedTreat<small>הסדנה של המתקן</small></span></a><span class="revision">תוכנה <bdi>2.9.9</bdi></span></header>
+<nav aria-label="דפי המתקן" class="top"><a aria-current="page" href="index.html">התקנה</a><a href="guide.html">הרכבה וחיווט</a><a href="3d.html">תלת־מימד</a></nav>
+<main><section class="intro"><div><p class="kicker">01 / תוכנה וחיבורים</p><h1>נותנים למתקן<br/>חיים.</h1><p class="intro-copy">התקנת התוכנה, חיבור לרשת ובדיקות ראשונות.<br/>צעד אחר צעד, מהכבל ועד החטיף הראשון.</p><div class="intro-links"><a class="text-link" href="#install">להתקנה ↓</a><a href="guide.html">כבר התקנת? למדריך ההרכבה ←</a></div></div><figure class="product"><span class="product-label">המתקן שלך / מבט כללי</span><img alt="המתקן המורכב" src="img/steps/main_full.jpg"/><figcaption>תוכנה 2.9.9 · גישה גם מחוץ לבית דרך האפליקציה</figcaption></figure></section><div class="workspace"><aside class="work-rail"><p class="kicker">סדר העבודה</p><a href="#install"><b>01</b> המתקן הראשי</a><a href="#after"><b>02</b> אחרי ההתקנה</a><a href="#more"><b>03</b> לוחות נוספים</a><p>מחברים לוח אחד בכל פעם.<br/>הצריבה עצמה מתבצעת במחשב.</p><a class="rail-model" href="3d.html">לפתיחת הדגם בתלת־מימד ↗</a></aside><div class="work-content"><section class="card" id="install"><div class="section-title"><span class="section-no">01</span><div><p class="kicker">ESP32 / היחידה הראשית</p><h2>מתקינים את התוכנה</h2></div></div>
+<div class="phone">ההתקנה מתבצעת ב-Chrome או Edge במחשב (Windows / Mac). בטלפון אפשר לעיין במדריך ובדגמי התלת־מימד.</div><div class="testing-notice"><strong>לפני שמחברים לחשמל</strong><p>המערכת עדיין לא נבדקה על חומרה אמיתית. ההתקנה והיחידות הנוספות הן ניסיוניות, ויש להרכיב ולבדוק לפי הוראות הבטיחות במדריך.</p></div>
+<ol class="steps">
+<li>מחברים את לוח ה-ESP32 בכבל USB-C (כבל שמעביר נתונים, לא רק טעינה) למחשב.<br/><span class="mut">אם המתקן כבר מורכב: לנתק קודם את מטען ה-USB-C של המתקן.</span></li>
+<li>פותחים את הדף הזה <b>בכרום במחשב</b>.</li>
+<li>לוחצים <b>התקן</b>, בוחרים את היציאה (משהו כמו <span class="ltr">USB-SERIAL CH340</span>) ולוחצים Connect / התחבר.</li>
+<li><p>בחלון שנפתח:</p><ul class="install-substeps"><li>בוחרים <bdi class="chip">Install</bdi>. בהתקנה ראשונה מסמנים <bdi class="chip">Erase</bdi>.</li><li>לוחצים <bdi class="chip">Next</bdi> ומחכים בערך 2 דקות, עד <bdi class="chip">Installation complete</bdi>.</li></ul></li>
+</ol>
+<esp-web-install-button manifest="fw/manifest.json">
+<button class="install-btn" slot="activate">התקן</button>
+<div class="phone" slot="unsupported">הדפדפן הזה לא יכול להתקין. צריך כרום או Edge במחשב (לא בטלפון, לא ספארי, לא פיירפוקס).</div>
+<div class="phone" slot="not-allowed">צריך לפתוח את הדף בכתובת https.</div>
+</esp-web-install-button><p class="button-note">עדכון קיים? לא מסמנים <bdi>Erase</bdi>, כדי לשמור את ההגדרות.</p><a class="help-link" href="#troubleshoot">לא מופיעה יציאה? עזרה בחיבור ↓</a>
+<details id="troubleshoot"><summary aria-expanded="false">לא מופיעה יציאה ברשימה?</summary>
+<ul class="small"><li>מתקינים את הדרייבר של CH340 ומפעילים את המחשב מחדש:<br/>Windows: <a href="https://www.wch-ic.com/downloads/CH341SER_EXE.html">CH341SER.EXE</a> · Mac: <a href="https://www.wch-ic.com/downloads/CH34XSER_MAC_ZIP.html">CH34XSER_MAC</a></li>
+<li>מנסים כבל USB אחר (הרבה כבלים הם רק לטעינה) או שקע אחר במחשב.</li>
+<li>אם ההתקנה נתקעת ב-"Connecting…": מחזיקים את הכפתור BOOT על הלוח, לוחצים התקן, ומשחררים כשההתקנה מתחילה.</li></ul></details>
+<details id="after"><summary aria-expanded="false">אחרי ההתקנה</summary>
+<ul class="small"><li>בטלפון מתחברים לרשת <b class="ltr">DogTreat-Setup</b> ובוחרים את הוויי-פיי של הבית.</li>
+<li>פותחים <b class="ltr">http://dogtreat.local</b>. אם לא נפתח: כאן בדף, התקן → Logs &amp; Console, ומחפשים שורה <span class="ltr">[wifi] IP: …</span> – זו הכתובת.</li>
+<li>באפליקציה, למעלה: <b>"בדיקת חיבורים"</b>.</li>
+<li>חטיף מהיר: פעם אחת, בדף <b>"ארוחות"</b> → "חטיף מהיר", לוחצים "סובב למצב מוכן". נפל חטיף לבד? "נפל לפני הקליק", ושוב.</li>
+<li>עדכון מגרסה קודמת: לא מסמנים "Erase". הכל נשמר: הוויי-פיי, ההגדרות, הנביחות שהקלטת והסימונים "זה לא היה נביחה".</li>
+<li>עדכון מ-2.9.5: הוויי-פיי וההגדרות נשמרים, אבל גרפי ההתקדמות מתחילים מאפס.</li>
+<li>התקנה מחדש עם "Erase" מוחקת גם את הוויי-פיי וההגדרות.</li></ul></details>
+</section><section class="card" id="more"><h2><span class="section-no">03</span> לוחות נוספים</h2>
+<div class="board">
+<p class="small"><b>מצלמה ESP32-CAM:</b> שמים אותה על לוח מתאם ה-USB (MB), מחברים את ה-MB ב-USB למחשב, ולוחצים:</p>
+<esp-web-install-button manifest="fw/manifest-cam.json"><button class="install-btn secondary" slot="activate">התקן מצלמה</button></esp-web-install-button>
+<p class="small mut2">אחרי ההתקנה היא פותחת רשת <span class="ltr">DogCam-Setup</span>, ובהגדרות של המתקן כותבים כתובת מצלמה <span class="ltr">dogcam.local</span>.</p>
+</div>
+<div class="board">
+<p class="small"><b>יחידה חיצונית ESP32-C3:</b> קודם לנתק את הסוללה. מחברים את ה-C3 ב-USB-C למחשב. אם לא מופיעה יציאה: מחזיקים BOOT, מחברים, משחררים.</p>
+<esp-web-install-button manifest="fw/manifest-outdoor.json"><button class="install-btn secondary" slot="activate">התקן יחידה חיצונית</button></esp-web-install-button>
+</div>
+</section><p class="mut small srcline">קוד המקור: <a href="fw/DogFeedTreat296-source.zip">DogFeedTreat296-source.zip</a><br/>שם קובץ המקור נשאר כפי שהיה בארכיון (296). חבילת ההתקנה מזוהה במניפסט כתוכנה 2.9.9. קבצי התוכנה לא שונו בעיצוב מחדש.</p></div></div></main><footer>מאכיל לכלב · 2.9.9</footer><script src="site.js"></script></body></html>

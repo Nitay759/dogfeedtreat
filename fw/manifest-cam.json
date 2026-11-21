@@ -1,0 +1,16 @@
+{
+ "name": "מצלמת המתקן (DogCam, ESP32-CAM)",
+ "version": "3.0",
+ "new_install_prompt_erase": true,
+ "builds": [
+  {
+   "chipFamily": "ESP32",
+   "parts": [
+    {
+     "path": "dogcam-merged.bin",
+     "offset": 0
+    }
+   ]
+  }
+ ]
+}

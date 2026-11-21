@@ -1,0 +1,16 @@
+{
+ "name": "יחידה חיצונית (DogTreatOutdoor, ESP32-C3)",
+ "version": "3.0.1",
+ "new_install_prompt_erase": true,
+ "builds": [
+  {
+   "chipFamily": "ESP32-C3",
+   "parts": [
+    {
+     "path": "outdoor-c3-merged.bin",
+     "offset": 0
+    }
+   ]
+  }
+ ]
+}
